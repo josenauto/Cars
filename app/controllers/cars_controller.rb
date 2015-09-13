@@ -5,6 +5,13 @@ class CarsController < ApplicationController
   end
 
   def create
-    render plain: params[:car].inspect
+    @car = Car.new(car_params)
+
+    @car.save
+    redirect_to @car
+  end
+
+  def car_params
+    params.require(:car).permit(:name, :description)
   end
 end
