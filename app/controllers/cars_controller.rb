@@ -12,6 +12,10 @@ class CarsController < ApplicationController
     @car = Car.new
   end
 
+  def edit
+    @car = Car.find(params[:id])
+  end
+
   def create
     @car = Car.new(car_params)
 
@@ -19,6 +23,16 @@ class CarsController < ApplicationController
       redirect_to @car
     else
       render 'new'
+    end
+  end
+
+  def update
+    @car = Car.find(params[:id])
+
+    if @car.update(car_params)
+      redirect_to @car
+    else
+      render 'edit'
     end
   end
 
