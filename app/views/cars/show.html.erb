@@ -8,5 +8,33 @@
   <%= @car.description %>
 </p>
 
-<%= link_to 'Edit', edit_car_path(@car) %>
+<h2>Parts</h2>
+<% @car.parts.each do |part| %>
+  <p>
+    <strong>Name:</strong>
+    <%= part.name %>
+  </p>
+
+  <p>
+    <strong>Quantity</strong>
+    <%= part.quantity %>
+  </p>
+<% end %>
+
+<h2>Add a part:</h2>
+<%= form_for([@car, @car.parts.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
