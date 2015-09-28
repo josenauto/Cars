@@ -1,0 +1,13 @@
+<%= form_for([@car, @car.parts.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

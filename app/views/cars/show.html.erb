@@ -12,19 +12,7 @@
 <%= render @car.parts %>
 
 <h2>Add a part:</h2>
-<%= form_for([@car, @car.parts.build]) do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :quantity %><br>
-    <%= f.text_field :quantity %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'parts/form' %>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
