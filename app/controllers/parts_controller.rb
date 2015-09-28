@@ -2,7 +2,7 @@ class PartsController < ApplicationController
 
   def create
     @car = Car.find(params[:car_id])
-    @part = @car.comments.create(part_params)
+    @part = @car.parts.create(part_params)
     redirect_to car_path(@car)
   end
 
