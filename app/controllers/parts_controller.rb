@@ -6,6 +6,13 @@ class PartsController < ApplicationController
     redirect_to car_path(@car)
   end
 
+  def destroy
+    @car = Car.find(params[:car_id])
+    @part = @car.parts.find(params[:id])
+    @part.destroy
+    redirect_to car_path(@car)
+  end
+
   private
     def part_params
       params.require(:part).permit(:name, :quantity)
