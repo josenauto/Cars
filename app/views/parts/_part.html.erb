@@ -1,15 +1,12 @@
-<p>
-  <strong>Name:</strong>
-  <%= part.name %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= part.quantity %>
-</p>
-
-<p>
-  <%= link_to 'Destroy Part', [part.car, part],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-</p>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Actions</th>
+  </tr>
+  <tr>
+    <td><%= part.name %></td>
+    <td><%= part.quantity %></td>
+    <td><%= link_to 'Destroy Part', [part.car, part], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+  </tr>
+</table>
