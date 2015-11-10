@@ -7,14 +7,20 @@
 <div class="row">
   <% @cars.each do |car| %>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
+      <!-- Image -->
+      <a class="thumbnail">
+          <%= image_tag car.car_img.url(:car_index) %>
+      </a>
+      <!-- Image -->
       <h2><%= car.name %></h2>
       <p><%= car.description %></p>
-      <%= link_to 'Show', car_path(car), :class=>"btn btn-primary" %>
-      <%= link_to 'Edit', edit_car_path(car),:class=>"btn btn-primary" %>
+      <%= link_to 'Show', car_path(car), :class => "btn btn-primary" %>
+      <%= link_to 'Edit', edit_car_path(car),:class => "btn btn-primary" %>
       <%= link_to 'Destroy', car_path(car),
                 method: :delete,
                 data: { confirm: 'Are you sure?' },
                 :class=>"btn btn-danger" %>
+      <hr>
     </div>
   <% end %>
 </div>
